@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FunNumbers</string>
+    <string name="title">Fun Numbers Facts</string>
+    <string name="about_short">"Made by Louis Harris. \nPowered by <a href='http://numbersapi.com'>numbersapi.com</a>"</string>
+    <string name="about_the_app">about</string>
+    <string name="number_selection_instruction">Enter a number</string>
+    <string name="ok">OK</string>
+    <string name="date_selector_instruction">Click to enter a date</string>
+    <string name="chose_mode">Chose a mode</string>
+    <string name="random_value">Random value</string>
+    <string name="retrieving_fact">Retrieving fact …</string>
+    <string name="error_fact">Unable to retrieve facts at the moment.\nPlease check your internet connection</string>
+</resources>
