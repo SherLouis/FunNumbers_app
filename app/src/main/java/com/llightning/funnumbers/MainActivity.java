@@ -29,6 +29,12 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements ISelectedData{
     private TextView tv_selected_date;
     private final Date selected_date = new Date();
     private TextView tv_facts;
+    private AdView mAdView;
     private final DialogFragment datePicker = new DatePickerFragment();
     private final static String numberapiBaseUrl = "http://numbersapi.com/";
     private final static int REQUEST_INTERNET = 1;
@@ -81,6 +88,16 @@ public class MainActivity extends AppCompatActivity implements ISelectedData{
         });
         // Ask for permissions if needed
         managePermission();
+
+        // Initialise Google Mobile Ads
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         // Number input
         btn_submit_number.setOnClickListener(new View.OnClickListener() {
